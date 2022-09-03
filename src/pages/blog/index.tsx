@@ -59,9 +59,9 @@ export default function Blog() {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  Promise.all([
-    await client.query(PostsDocument, {}).toPromise(),
-    await client.query(PageDocument, { slug: "blog" }).toPromise(),
+  await Promise.all([
+    client.query(PostsDocument, {}).toPromise(),
+    client.query(PageDocument, { slug: "blog" }).toPromise(),
   ]);
 
   return {
